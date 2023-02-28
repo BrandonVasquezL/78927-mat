@@ -9,6 +9,6 @@ namespace WSDL.mensajes
         [OperationContract]
         string Saludar(string nombre);
         [OperationContract]
-        string Mostrar (int id);
+        string Mostrar (string persoName);
     }
 }
