@@ -16,24 +16,19 @@ namespace WSDL.operaciones{
             }
 
             if (estaLleno == true){
-                return "Memoria llena...";
+                return "Memoria llena..";
             }
             return "Hola "+nombre;
         }
         public string Mostrar(int id){
             if(id >= mensajes.Length || id < 0){
-                return "El ID no coincide";
+                return "No existe ese id en los limites del array";
             } 
             
             if(!string.IsNullOrEmpty(mensajes[id])){
-                return "hola " + mensajes[id] ;
+                return "hola " + mensajes[id] + " que weno q volviste";
             }
-            return "No se encontro este ID";
-        }
-
-        public string Mostrar(string persoName)
-        {
-            throw new NotImplementedException();
+            return "No se encontro un mensaje con este id";
         }
     }
 }
