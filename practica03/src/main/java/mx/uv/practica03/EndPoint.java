@@ -20,10 +20,9 @@ import https.t4is_uv_mx.saludos.VerResponse;
 
 @Endpoint
 public class EndPoint{
-    
 
     List<String> msj = new ArrayList<String>();
-    String nombre;
+    String nombres;
 
     @PayloadRoot(localPart = "SaludarRequest", namespace = "https://t4is.uv.mx/saludos")
     @ResponsePayload
@@ -40,7 +39,7 @@ public class EndPoint{
         BuscarResponse respuesta = new BuscarResponse();
         if(msj == null || msj.size() == 0)
         {
-            respuesta.setRespuesta("Lista vacía");
+            respuesta.setRespuesta("Lista vacia");
         }else{
             respuesta.setRespuesta(msj.get(peticion.getId()));
         }
@@ -53,10 +52,10 @@ public class EndPoint{
         ModificarResponse respuesta = new ModificarResponse();
         if(msj == null || msj.size() == 0)
         {
-            respuesta.setRespuesta("Lista vacía");
+            respuesta.setRespuesta("Lista vacia");
         }else{
             msj.set(peticion.getId(),peticion.getNombre());
-            respuesta.setRespuesta("Se modifico "+peticion.getId()+" con  "+msj.get(peticion.getId()));
+            respuesta.setRespuesta("Se ha modificado la posición "+peticion.getId()+" con el valor "+msj.get(peticion.getId()));
         }
         return respuesta;
     }
@@ -67,14 +66,14 @@ public class EndPoint{
         VerResponse respuesta = new VerResponse();
         if(msj == null || msj.size() == 0)
         {
-            respuesta.setRespuesta("Lista vacía");
+            respuesta.setRespuesta("Lista vacia");
         }else{
-            nombre = "Lista: ";
+            nombres = "Lista: ";
             for(String n :msj) {
-                nombre += n;
-                nombre += ", ";
+                nombres += n;
+                nombres += ", ";
             }
-        respuesta.setRespuesta(nombre);
+        respuesta.setRespuesta(nombres);
         }
         return respuesta;
     }
@@ -85,7 +84,7 @@ public class EndPoint{
         EliminarResponse respuesta = new EliminarResponse();
         if(msj == null || msj.size() == 0)
         {
-            respuesta.setRespuesta("Lista vacía");
+            respuesta.setRespuesta("Lista vacia");
         }else{
             String aux = msj.get(peticion.getId());
             msj.remove(peticion.getId());
@@ -93,5 +92,4 @@ public class EndPoint{
         }
         return respuesta;
     }
-    
 }

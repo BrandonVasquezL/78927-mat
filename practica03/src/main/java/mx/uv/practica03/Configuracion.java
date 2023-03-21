@@ -19,7 +19,7 @@ public class Configuracion extends WsConfigurerAdapter{
     public XsdSchema saludoSchema(){
         return new SimpleXsdSchema(new ClassPathResource("esquema.xsd"));
     }
-
+    
     @Bean
     public ServletRegistrationBean<MessageDispatcherServlet> messageDispatcherServlet(ApplicationContext applicationContext) {
         MessageDispatcherServlet servlet = new MessageDispatcherServlet();
@@ -30,9 +30,9 @@ public class Configuracion extends WsConfigurerAdapter{
     @Bean(name = "saludos")
     public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema saludosSchema) {
         DefaultWsdl11Definition wsdl = new DefaultWsdl11Definition();
-        wsdl.setPortTypeName("saludosPort");
-        wsdl.setLocationUri("/ws");
-        wsdl.setTargetNamespace("https://t4is.uv.mx/saludos");
+        wsdl.setPortTypeName("saludosPort");        
+        wsdl.setLocationUri("/ws");   
+        wsdl.setTargetNamespace("https://t4is.uv.mx/saludos");        
         wsdl.setSchema(saludosSchema);
         return wsdl;
     }
